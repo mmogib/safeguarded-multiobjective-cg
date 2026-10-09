@@ -86,7 +86,7 @@ verifyEqual(testCase,numel(dir(fullfile(imageDir,'profile_*.pdf'))),8);
 verifyEmpty(testCase,dir(fullfile(imageDir,'profile_*.eps')));
 end
 
-function testPairOnlyExportUsesHalfWidthAndNoLegend(testCase)
+function testPairOnlyExportUsesHalfWidthAndMethodLegend(testCase)
 report = restricted_profiles_050(seven_arm_ratio_fixture());
 outputDir = tempname;
 mkdir(outputDir);
@@ -110,8 +110,8 @@ verifyLessThan(testCase,widthPoints,222);
 
 [status,textOutput] = system(sprintf('pdftotext "%s" -',pdfPath));
 verifyEqual(testCase,status,0);
-verifyFalse(testCase,contains(textOutput,'SVPRP+'));
-verifyFalse(testCase,contains(textOutput,'VPRP+'));
+verifyTrue(testCase,contains(textOutput,'SVPRP+'));
+verifyTrue(testCase,contains(textOutput,'VPRP+'));
 end
 
 function ratios = seven_arm_ratio_fixture()
