@@ -1,0 +1,16 @@
+function styles = seven_arm_047_styles()
+%SEVEN_ARM_047_STYLES Color-vision-friendly redundant curve encodings.
+
+method = seven_arm_047_methods().display_name;
+color_hex = ["#0072B2";"#D55E00";"#009E73";"#0072B2"; ...
+    "#D55E00";"#009E73";"#000000"];
+pgfplots_color_name = ["prpblue";"hsvermillion";"lsgreen"; ...
+    "prpblue";"hsvermillion";"lsgreen";"vsdblack"];
+pgfplots_style_name = ["svprpstyle";"svhsstyle";"svlsstyle"; ...
+    "vprpstyle";"vhsstyle";"vlsstyle";"vsdstyle"];
+pgfplots_line_style = ["solid";"solid";"solid";"dashed"; ...
+    "dashed";"dashed";"dash dot"];
+pgfplots_options = "color="+pgfplots_color_name+","+pgfplots_line_style;
+styles = table(method,color_hex,pgfplots_color_name, ...
+    pgfplots_style_name,pgfplots_line_style,pgfplots_options);
+end

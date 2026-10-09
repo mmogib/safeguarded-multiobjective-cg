@@ -1,0 +1,13 @@
+function gate = run_tier3_gate()
+%RUN_TIER3_GATE Construct-only NC10 gate; does not run any solver campaign.
+
+registry = tier3_problem_registry();
+certificates = certify_tier3_levelsets(registry);
+gradients = validate_tier3_gradients(registry);
+gate = struct('problem_count',numel(registry), ...
+    'certificate_count',height(certificates), ...
+    'certificates',certificates,'gradients',gradients, ...
+    'passed',all(certificates.passed) && all(gradients.zero.passed) && ...
+    all(gradients.phase.passed) && all(gradients.composite.passed));
+end
+

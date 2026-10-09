@@ -1,0 +1,31 @@
+.work/
+
+# Generated numerical results and reports
+data/results/*
+!data/results/.gitkeep
+reproduced_results/*
+!reproduced_results/.gitkeep
+
+# MATLAB and operating-system temporary files
+*.asv
+*.m~
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Local AI and project-administration material
+.claude/
+.codex/
+.agents/
+CLAUDE.md
+AGENTS.md
+**/CLAUDE.md
+**/AGENTS.md
+channels/
+docs/superpowers/
+
+# Internal archival comparison requiring the unpublished original code
+bench/analyze_phase_a_followups.m
+tests/test_phase_a_followups.m

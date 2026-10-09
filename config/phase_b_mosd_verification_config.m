@@ -1,0 +1,9 @@
+function cfg = phase_b_mosd_verification_config(mcodeRoot, outputFile)
+%PHASE_B_MOSD_VERIFICATION_CONFIG Verify explicit MOSD on calibration starts.
+
+job = struct('method','MOSD','mode','paper_r2','eta',NaN);
+cfg = struct('mcode_root',mcodeRoot,'output_file',outputFile, ...
+    'jobs',job, ...
+    'problem_indices',[1 5 6 7 22 17 18 19 23 26 31 32 33 35 40], ...
+    'trials',1:100,'parallel_workers',8);
+end
